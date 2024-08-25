@@ -8,6 +8,7 @@ Feature: Compare data between two Excel files
       | Excel1Column | Excel2Column |
       | Name         | Exp			    |
       | APPROVER_USER_ID         | SERVICE_OFFEREING     |
+      
     When I compare the Excel files
     Then the comparison result should be stored in "C:\Users\ADMIN\Downloads\comparison_result.xlsx"
     
