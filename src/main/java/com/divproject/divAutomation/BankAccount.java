@@ -8,7 +8,7 @@ public class BankAccount {
 	private String email;
 	private String phoneNumber;
 	
-	
+	//git check
 	
 	public BankAccount(String accountNumber, int accountBalance, String customerName, String email,
 			String phoneNumber) {
