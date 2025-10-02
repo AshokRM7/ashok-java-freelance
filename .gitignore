@@ -1,0 +1,7 @@
+/target/
+chromedriver
+chromedriver.exe
+.idea/
+.project
+.classpath
+.settings/
