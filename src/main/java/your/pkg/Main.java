@@ -30,7 +30,7 @@ public class Main {
             // --- self-healing locators
 //            By username = HealingBy.key("login.username", By.name("username-broken"))
             By username = HealingBy.key("username", By.name("username-broken"))
-                    .alts(By.cssSelector("input[name='username-broken']"),
+                    .alts(By.cssSelector("input[name='username-broekn']"),
                             By.xpath("//input[contains(@placeholder,'Username-broken')]")).threshold(0.60);
 
             By password = HealingBy.key("login.password", By.name("password"))
@@ -51,7 +51,7 @@ public class Main {
             WebElement btnEl = SmartWait.untilClickable(driver, loginBtn);
             btnEl.click();
 
-            Thread.sleep(1500);  // small pause just for the demo
+            Thread.sleep(15000);  // small pause just for the demo
             driver.log("verify", "Page title after login: " + driver.getTitle(), null);
 
         } catch (Exception e) {
