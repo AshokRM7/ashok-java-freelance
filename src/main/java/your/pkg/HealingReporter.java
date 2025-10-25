@@ -5,14 +5,22 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 
 import java.io.IOException;
 import java.nio.file.*;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
-/** Collects healing/guard/wait events and writes them to JSON at quit(). */
 public class HealingReporter {
+
     private final List<Map<String, Object>> events = new ArrayList<>();
-    private final Path out = Paths.get("target", "selfheal",
-            "report-" + System.currentTimeMillis() + ".json");
+    private final Path out;
     private final ObjectWriter writer = new ObjectMapper().writerWithDefaultPrettyPrinter();
+
+    public HealingReporter() {
+        // 🕒 Create timestamp with year, month, day, hour, minute, second, and milliseconds
+        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss_SSS").format(new Date());
+
+        // Example: report-20251014_155927_944.json
+        this.out = Paths.get("target", "selfheal", "report-" + timestamp + ".json");
+    }
 
     public synchronized void log(String type, String message, Map<String, Object> extra) {
         Map<String, Object> e = new LinkedHashMap<>();
